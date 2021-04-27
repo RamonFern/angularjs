@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Curso AngularJS - Aluno: </title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js" 
+    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="node_modules\bootstrap\dist\css\bootstrap.min.css">
     <script src="node_modules\bootstrap\dist\js\bootstrap.min.js"></script>
     <script src="node_modules\angular\angular.min.js"></script>
@@ -15,11 +17,13 @@
         angular.module("app", []);
         angular.module("app").controller("appController", function(){
             vm = this;
-            this.ola = "olá mundo 2";
+            vm.ola = "olá mundo 2";
+            vm.teste = "Teste"
             console.log(this.ola)
         })
     </script>
 </head>
+
 <body ng-app="app">
     <div ng-controller="appController as vm">
         <h1>{{vm.ola}}</h1>
@@ -27,16 +31,11 @@
 
         <form  class="row g-3">
             <div class="col-auto">
-            <label for="staticEmail2" class="visually-hidden">Email</label>
-            <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
+            <label for="teste">nosso teste de twowai data binding</label>
+            <input type="text" ng-model="vm.teste" id="teste">
             </div>
-            <div class="col-auto">
-            <label for="inputPassword2" class="visually-hidden">Password</label>
-            <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-            </div>
-            <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
-            </div>
+            
+            <h1>{{vm.teste}}</h1>
         </form>
     </div>
 </body>
