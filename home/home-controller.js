@@ -6,13 +6,17 @@ HomeController.$inject = ['$location', 'CursoService'];
         vm.teste = 'Home 2'
         vm.clientes = ''
 
+        vm.init = function(){
+            vm.listarClientes();
+        }
+
         vm.navegar = function(rota){
             $location.path(rota)
         }
         vm.listarClientes = function(){
             CursoService.exec_GET().then(function(resposta){
                 if(resposta){
-                    console.log(resposta)
+                    vm.clientes = resposta;
                 }
             })
         }
