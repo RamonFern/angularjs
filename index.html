@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,11 +17,44 @@
     <script src="curso-router.js"></script>
     <script src="cadastro/cadastro-controller.js"></script>
     <script src="home/home-controller.js"></script>
+
     <!--<link rel="shotcut icon" href="caminhoDoIcon"-->
     
 </head>
 
-<body ng-app="app">
+<body>
+    <script>
+      angular.module('app').controller('MenuController', MenuController);
+        MenuController.$inject = ['$location'];
+            function MenuController($location){
+                vm = this;
+                vm.itensMenu = [
+                    {titulo: 'Home', class: 'nav-link active'},
+                    {titulo: 'Cadastro', class: 'nav-link'}
+                ]
+                vm.navegar = function(rota, array){
+                    angular.forEach(array, function(item){
+                        if(item.titulo == rota){
+                            item.class = 'nav-link active'
+                        }else{
+                            item.class = 'nav-link'
+                        }
+                    });
+
+                    $location.path(rota)
+                }
+        }
+    </script>
+    
+    <div ng-controller="MenuController as vm">
+        <ul class="nav nav-tabs">
+            <li class="nav-item" ng-repeat="item in vm.itensMenu">
+            <a ng-class="item.class" ng-click="vm.navegar(item.titulo, vm.itensMenu)">{{item.titulo}}</a>
+            </li>
+           
+        </ul>
+    </div>
+     
         <div ng-view></div>
 </body>
 </html>
