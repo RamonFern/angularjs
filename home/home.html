@@ -4,6 +4,11 @@
     <alert-para-usuario msg="'A conexão com o banco de dados falhou!...'" tipo="'erro'"></alert-para-usuario>
   </div>
 
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Filtro de pesquisa</span>
+    <input type="text" class="form-control" ng-model="vm.filtroPesquisa" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  </div>
+
 <table class="table" ng-if="vm.clientes">
     <thead>
       <tr>
@@ -15,9 +20,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="cliente in vm.clientes | orderBy : 'nome'">
+      <tr ng-repeat="cliente in vm.clientes | filter : vm.filtroPesquisa">
         <th scope="row">{{cliente.id}}</th>
-        <td>{{cliente.nome}}</td>
+        <td>{{cliente.nome | uppercase}}</td>
         <td>{{cliente.rg}}</td>
         <td><button type="button" class="btn btn-danger" ng-click="vm.excluir(cliente.id)">excluir</button></td>
         <td><button type="button" class="btn btn-warning" ng-click="vm.editar(cliente.id)">editar</button></td>
