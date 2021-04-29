@@ -1,23 +1,18 @@
 {
   "clientes": [
     {
-      "id": 1,
-      "nome": "Sophia",
-      "rg": "1231231312"
-    },
-    {
       "id": 2,
       "nome": "Raul",
       "rg": "158557535312"
     },
     {
       "id": 3,
-      "nome": "Ramon",
+      "nome": "Ramon Fernandes",
       "rg": "96676786312"
     },
     {
       "id": 4,
-      "nome": "Adriane",
+      "nome": "Sophia Fernandes",
       "rg": "1231254646"
     }
   ]

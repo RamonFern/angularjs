@@ -10,8 +10,8 @@ HomeController.$inject = ['$location', 'CursoService'];
             vm.listarClientes();
         }
 
-        vm.navegar = function(rota){
-            $location.path(rota)
+        vm.navegar = function(rota, id){
+            $location.path(rota + '/' + id)
         }
         vm.listarClientes = function(){
             CursoService.exec_GET().then(function(resposta){
@@ -27,5 +27,9 @@ HomeController.$inject = ['$location', 'CursoService'];
                     //menss resposta
                 }
             })
+        }
+
+        vm.editar = function(id){
+            vm.navegar('Cadastro', id)
         }
     }

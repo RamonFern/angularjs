@@ -3,9 +3,14 @@ CursoService.$inject = ["$http"]
 
     const REST = 'http://localhost:3000/clientes';
     function CursoService($http){
+
         var service = {
             exec_GET: function(){
                 return $http.get(REST)
+                        .then(tratarResposta, tratarErro);
+            },
+            exec_GET_ID: function(id){
+                return $http.get(REST + '/' + id)
                         .then(tratarResposta, tratarErro);
             },
             exec_DEL: function(id){
@@ -14,6 +19,10 @@ CursoService.$inject = ["$http"]
             },
             exec_POST: function(cliente){
                 return $http.post(REST, cliente)
+                        .then(tratarResposta, tratarErro);
+            },
+            exec_PUT: function(cliente){
+                return $http.put(REST + '/' + cliente.id, cliente)
                         .then(tratarResposta, tratarErro);
             }
         }
