@@ -1,13 +1,19 @@
 angular.module("app").factory("CursoService", CursoService);
 CursoService.$inject = ["$http"]
+
+    const REST = 'http://localhost:3000/clientes';
     function CursoService($http){
         var service = {
             exec_GET: function(){
-                return $http.get('http://localhost:3000/clientes')
+                return $http.get(REST)
+                        .then(tratarResposta, tratarErro);
+            },
+            exec_DEL: function(id){
+                return $http.delete(REST + '/' + id)
                         .then(tratarResposta, tratarErro);
             },
             exec_POST: function(cliente){
-                return $http.post('http://localhost:3000/clientes', cliente)
+                return $http.post(REST, cliente)
                         .then(tratarResposta, tratarErro);
             }
         }

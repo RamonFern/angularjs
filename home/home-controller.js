@@ -20,4 +20,12 @@ HomeController.$inject = ['$location', 'CursoService'];
                 }
             })
         }
+
+        vm.excluir = function(id){
+            CursoService.exec_DEL(id).then(function(resposta){
+                if(resposta){
+                    //menss resposta
+                }
+            })
+        }
     }
