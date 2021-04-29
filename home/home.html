@@ -1,16 +1,20 @@
 <div class="container" ng-init="vm.init()">
+  <div class="alert alert-danger" role="alert" ng-if="vm.erro">
+    A conexão com o banco de dados falhou!...
+  </div>
 
-
-<table class="table">
+<table class="table" ng-if="vm.clientes">
     <thead>
       <tr>
         <th scope="col">id</th>
         <th scope="col">Nome</th>
         <th scope="col">RG</th>
+        <th scope="col">Excluir</th>
+        <th scope="col">Editar</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="cliente in vm.clientes">
+      <tr ng-repeat="cliente in vm.clientes | orderBy : 'nome'">
         <th scope="row">{{cliente.id}}</th>
         <td>{{cliente.nome}}</td>
         <td>{{cliente.rg}}</td>
