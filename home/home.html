@@ -1,6 +1,7 @@
-<div class="container" ng-init="vm.init()">
-  <div class="alert alert-danger" role="alert" ng-if="vm.erro">
-    A conexão com o banco de dados falhou!...
+<div class="container" ng-init="vm.init()"> 
+
+  <div class="container" ng-if="vm.erro">
+    <alert-para-usuario msg="'A conexão com o banco de dados falhou!...'" tipo="'erro'"></alert-para-usuario>
   </div>
 
 <table class="table" ng-if="vm.clientes">
