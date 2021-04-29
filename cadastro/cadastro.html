@@ -1,2 +1,19 @@
-<h1>{{vm.teste}}</h1>
-<button type="button" class="btn btn-primary" ng-click="vm.navegar()">Navegar</button>
+
+
+<div class="container">
+    <form>
+       
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" id="nome" class="form-control" ng-model="vm.cliente.nome" placeholder="digite o nome">
+          </div>
+          <div class="mb-3">
+            <label for="rg" class="form-label">RG</label>
+            <input type="text" id="rg" ng-model="vm.cliente.rg" class="form-control" placeholder="digite o registro">
+          </div>
+          
+          <button type="button" class="btn btn-primary" ng-click="vm.cadastrar()">Cadastrar</button>
+          <button type="button" class="btn btn-secondary" ng-click="vm.limpar()">Limpar</button>
+       
+      </form>
+</div>
